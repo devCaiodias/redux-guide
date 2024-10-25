@@ -1,17 +1,42 @@
+import UserActionTypes from "./action-type";
+
 
 const initialState = {
-    currentUser: 1000,
+    currentUser: null,
 }
 
 const userReducer = (state = initialState, action) => {
-    if (action.type === 'user/login') {
-        return {
+    switch (action.type) {
+        case UserActionTypes.LOGIN:
+            return {
             ...state,
-            currentUser: 100
+            currentUser: action.payload
         }
+        case UserActionTypes.LOGOUT:
+            return {
+            ...state, 
+            currentUser: null
+        }
+    
+        default:
+            return state
     }
+    
+    // if (action.type === UserActionTypes.LOGIN) {
+    //     return {
+    //         ...state,
+    //         currentUser: action.payload
+    //     }
+    // }
 
-    return state;
+    // if (action.type === UserActionTypes.LOGOUT) {
+    //     return {
+    //         ...state, 
+    //         currentUser: null
+    //     }
+    // }
+
+    // return state;
 }
 
 export default userReducer;
