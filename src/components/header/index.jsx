@@ -15,7 +15,7 @@ function Header() {
   const { currentUser } = useSelector(rootReducer =>  rootReducer.userReducer)
   const dispatch = useDispatch()
 
-  console.log({currentUser});
+  // console.log({currentUser});
   
 
   const handleCartClick = () => {
